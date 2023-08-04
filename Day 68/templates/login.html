@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box">
+    <h1>Login</h1>
+
+    <form action="{{ url_for('login') }}" method="post">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li style="color: red">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <input name="email" placeholder="Email" required="required" type="text"/>
+        <input name="password" placeholder="Password" required="required" type="password"/>
+        <button class="btn btn-primary btn-block btn-large" type="submit">Let me in.</button>
+    </form>
+</div>
+
+{% endblock %}
